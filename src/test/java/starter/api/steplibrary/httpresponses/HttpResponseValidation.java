@@ -74,7 +74,7 @@ public class HttpResponseValidation {
 
     public void verifyProductDetailsInResponseMatchesProduct(){
         assertTrue("The name was not the same", apiTestContext.getResponse().jsonPath().get("name").toString().contains(apiTestContext.getProduct().name));
-        assertTrue("The price was not that same", apiTestContext.getResponse().jsonPath().get("price").toString().contains(String.valueOf(apiTestContext.getProduct().price)));
+        assertTrue("The price was not that same", String.valueOf(Double.parseDouble(apiTestContext.getResponse().jsonPath().get("price").toString())).contains(String.valueOf(apiTestContext.getProduct().price)));
         assertTrue("The type was not that same", apiTestContext.getResponse().jsonPath().get("productType").toString().contains(apiTestContext.getProduct().productType));
         assertTrue("The quantity was not that same", apiTestContext.getResponse().jsonPath().get("quantity").toString().contains(String.valueOf(apiTestContext.getProduct().quantity)));
         assertTrue("The product id was not the same", apiTestContext.getResponse().jsonPath().get("productId").toString().contains(apiTestContext.getProduct().productId));
@@ -83,7 +83,7 @@ public class HttpResponseValidation {
 
     public void verifyUpdatedProductDetailsInResponseMatches(){
         assertTrue("The name was not updated", apiTestContext.getResponse().jsonPath().get("name").toString().contains(apiTestContext.getName()));
-        assertTrue("The price was not updated", apiTestContext.getResponse().jsonPath().get("price").toString().contains(String.valueOf(apiTestContext.getPrice())));
+        assertTrue("The price was not updated", String.valueOf(Double.parseDouble(apiTestContext.getResponse().jsonPath().get("price").toString())).contains(String.valueOf(apiTestContext.getPrice())));
         assertTrue("The type was not updated", apiTestContext.getResponse().jsonPath().get("productType").toString().contains(apiTestContext.getProductType()));
         assertTrue("The quantity was not updated", apiTestContext.getResponse().jsonPath().get("quantity").toString().contains(String.valueOf((int) apiTestContext.getQuantity())));
     }

@@ -1,4 +1,4 @@
-package starter.common;
+package starter.utils;
 
 import java.security.SecureRandom;
 import java.util.List;
@@ -26,12 +26,12 @@ public class RandomUtils{
     }
 
     public static double randomDouble(){
-        double rangeMin = 10.0;
-        double rangeMax = 99.0;
+        double rangeMin = 10.01;
+        double rangeMax = 99.99;
 
         double randomValue = rangeMin + (rangeMax - rangeMin) * SECURE_RANDOM.nextDouble();
 
-        return Math.floor(randomValue * 100) / 100;
+        return (Math.floor(randomValue * 100) / 100);
     }
 
     public static int randomInt() {

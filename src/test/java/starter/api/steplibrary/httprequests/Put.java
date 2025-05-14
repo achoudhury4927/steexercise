@@ -8,7 +8,7 @@ import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import starter.api.model.endpoints.ProductEndpoints;
 import starter.api.model.schemas.Product;
-import starter.common.RandomUtils;
+import starter.utils.RandomUtils;
 
 public class Put extends Request{
 

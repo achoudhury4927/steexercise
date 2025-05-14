@@ -23,6 +23,7 @@ I started with https://github.com/serenity-bdd/serenity-cucumber-starter then ad
 
 # Test Notes
 
+- I have received 500 errors with a html body response stating cloudflare when running on a vpn or when running the framework multiple times but I couldnt recreate these issues. It is very unlikely but this may introduce some test failures.
 - Updating a product allows you to input invalid data that would be rejected during creations. There are three tests in updateProduct.feature that are commented out due to them returning 200 response codes when based on creating a product they should return 400 response codes.
 - 500 error tests: I have added but left commented out on all the features a 500 response code error test which would require external config to pass. Or updating the API to simulate a 500 error based on some test data.
 - Ideally when run on a pipeline like jenkins each test would be deployed in its own pod

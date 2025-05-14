@@ -10,7 +10,7 @@ import starter.api.model.endpoints.LoginEndpoints;
 import starter.api.model.endpoints.ProductEndpoints;
 import starter.api.model.endpoints.StockEndpoints;
 import starter.api.model.schemas.Product;
-import starter.common.RandomUtils;
+import starter.utils.RandomUtils;
 
 public class Post extends Request{
 
@@ -39,18 +39,15 @@ public class Post extends Request{
         String productType = RandomUtils.randomElementFromList(productTypeList);
         double price = RandomUtils.randomDouble();
         int quantity = RandomUtils.randomInt();
-        
-        apiTestContext.setName(uniqueName);
-        apiTestContext.setPrice(price);
-        apiTestContext.setProductType(productType);
-        apiTestContext.setQuantity(quantity);
+        logger.debug("Generated name {}, product type {}, price {}, quantity {}", uniqueName, productType, price, quantity);
 
         postProduct(uniqueName, price, productType, quantity);  
     }
 
     public void aProductWithDetails(double price, String type, double quantity){
         String name = apiTestContext.getName().equals("") ? RandomUtils.randomString(10) : apiTestContext.getName(); 
-        apiTestContext.setName(name);
+        logger.debug("Using the name {}", name);
+        
         postProduct(name, price, type, quantity);   
     }
 
@@ -59,6 +56,11 @@ public class Post extends Request{
     }
 
     public void postProduct(String name, double price, String type, double quantity){
+        apiTestContext.setName(name);
+        apiTestContext.setPrice(price);
+        apiTestContext.setProductType(type);
+        apiTestContext.setQuantity(quantity);
+
         JSONObject body = new JSONObject()
             .put(NAME,name)
             .put(PRICE,price)

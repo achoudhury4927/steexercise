@@ -8,6 +8,7 @@ import io.restassured.specification.RequestSpecification;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import net.serenitybdd.rest.SerenityRest;
+import starter.utils.Configuration;
 
 
 /*
@@ -21,7 +22,7 @@ public class DWPRequestBuilder extends Request{
 
     private DWPRequestBuilder(){
         this.requestSpecification = SerenityRest.given().log().uri();
-        this.requestSpecification.baseUri("https://apiforshopsinventorymanagementsystem.onrender.com/");
+        this.requestSpecification.baseUri(Configuration.get("base.uri"));
     }
 
     public static DWPRequestBuilder given() {return new DWPRequestBuilder();}

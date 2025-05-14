@@ -21,6 +21,16 @@ Feature: Create a Product
         | user   |
         | USER01 |
 
+  Scenario Outline: New Product - Price can be number with no decimals
+    Given I am logged in with <user>
+    When I create a new product with the details <price> and <type> and <quantity>
+    Then I receive a 201 response code
+    And I verify a new product was created
+
+    Examples:
+        | user   | price | type   | quantity |
+        | USER01 | 21    | mobile | 0        |      
+
   Scenario Outline: Validation Error - No Mandatory details provided
     Given I am logged in with <user>
     When I try to create a new product with no mandatory details
