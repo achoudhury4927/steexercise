@@ -1,12 +1,12 @@
 # Candidate Details
 
-Role Reference: 392590
-Application ID number: 13795139
+-Role Reference: 392590
+-Application ID number: 13795139
 
 # Requirements
 
-Maven
-Java 19
+-Maven
+-Java 19
 
 # Run Project
 
