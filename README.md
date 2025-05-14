@@ -17,11 +17,13 @@ $ mvn clean verify
 # Notes
 
 Assumptions:
-When run on a pipeline each test would be deployed in its own pod thus have its own context
+When run on a pipeline each test would be deployed in its own pod thus have its own context.
 
 I started with https://github.com/serenity-bdd/serenity-cucumber-starter then added lombok, RestAssured, slf4j for logging and a JSON parser package.
 
 # Test Notes
+
+A generated single page summary has been provided of all the tests passing as a reference and for your convenience
 
 - I have received 500 errors with a html body response stating cloudflare when running on a vpn or when running the framework multiple times but I couldnt recreate these issues. It is very unlikely but this may introduce some test failures.
 - Updating a product allows you to input invalid data that would be rejected during creations. There are three tests in updateProduct.feature that are commented out due to them returning 200 response codes when based on creating a product they should return 400 response codes.
